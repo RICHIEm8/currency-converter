@@ -3,7 +3,7 @@ function conversion() {
     usd: 1.2793188994,
     eur: 1.1276499774,
     jpy: 143.3581416328
-    }
+  }
   //const usdRate = 1.2793188994
   //const eurRate = 1.1276499774
   //const jpyRate = 143.3581416328
