@@ -30,13 +30,13 @@ function conversion() {
 
     switch (desiredConversion) { //switch statement to simplify the code further
         case 'GBP to USD':
-        return amount * rates.usd;
+            return amount * rates.usd;
         case 'GBP to EUR':
-        return amount * rates.eur;
+            return amount * rates.eur;
         case 'GBP to JPY':
-        return amount * rates.jpy;
+            return amount * rates.jpy;
         default:
-        return 'Error, invalid input. Input must follow the exact structure as shown; # GBP to USD/EUR/JPY.';
+            return 'Error, invalid input. Input must follow the exact structure as shown; # GBP to USD/EUR/JPY.';
     }
 }
 const output = conversion()
