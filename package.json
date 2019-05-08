@@ -1,0 +1,13 @@
+{
+  "name": "currencyconverter",
+  "version": "1.0.0",
+  "main": "currencyConversion.js",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node currencyConverter.js"
+  }
+}

@@ -1,9 +1,18 @@
-function conversion() {
-  const rates = { //creating an object called rates and setting values instead of making a seperate variable for each currency rate
+const request = require('request-promise');
+
+function getRatesFromApi() {
+  return request({
+    uri: 'https://api.exchangeratesapi.io/latest',
+    json: true
+  })
+}
+
+function conversion(rates) {
+  /*const rates = { //creating an object called rates and setting values instead of making a seperate variable for each currency rate
     usd: 1.2793188994,
     eur: 1.1276499774,
     jpy: 143.3581416328
-  }
+  }*/
   //const usdRate = 1.2793188994
   //const eurRate = 1.1276499774
   //const jpyRate = 143.3581416328
@@ -29,15 +38,21 @@ function conversion() {
   }*/
 
   switch (desiredConversion) { //switch statement to simplify the code further
-    case 'GBP to USD':
-      return amount * rates.usd;
-    case 'GBP to EUR':
-      return amount * rates.eur;
-    case 'GBP to JPY':
-      return amount * rates.jpy;
+    case 'EUR to USD':
+      return amount * rates.USD;
+    case 'EUR to GBP':
+      return amount * rates.GBP;
+    case 'EUR to JPY':
+      return amount * rates.JPY;
     default:
-      return 'Error, invalid input. Input must follow the exact structure as shown; # GBP to USD/EUR/JPY.';
+      return 'Error, invalid input. Input must follow the exact structure as shown; # EUR to USD/GBP/JPY. We only support EUR as a base currency.';
   }
 }
-const output = conversion()
-console.log(output);
+getRatesFromApi()
+.then((res) => {
+  const output = conversion(res.rates)
+  console.log(output);
+})
+.catch((err) => {
+  console.log('Something went wrong, please try again.', err)
+})
